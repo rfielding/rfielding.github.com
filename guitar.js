@@ -164,7 +164,7 @@ function doinit() {
     var fretWidth = function(i){return ((i+1)%2)+1;}
     var d;
 
-    d = doDiagram("diagram1", "Bayati on E - NN", edo, strings, markers, fretWidth);
+    d = doDiagram("diagram1", "Bayati on E - MM", edo, strings, markers, fretWidth);
     markLine(gtx, fretToPitch(gtx,0),0,fretToPitch(gtx,6),0, "red");
     markDiagram(d, 0, 0, 0);
     markColor(d, "green");
@@ -212,7 +212,7 @@ function doinit() {
     markDiagram(d, 1, 6, 2);
     markColor(d, "blue");
 
-    d = doDiagram("diagram2", "Bayati on B - NN", edo, strings, markers, fretWidth);
+    d = doDiagram("diagram2", "Bayati on B - MM", edo, strings, markers, fretWidth);
     markLine(gtx, fretToPitch(gtx,4),1,fretToPitch(gtx,10),1, "red");
     markDiagram(d, -1, 0, 1);
     markDiagram(d, 0, 4, 1);
