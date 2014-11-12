@@ -332,27 +332,42 @@ function doinit() {
     markDiagram(d,"", 10, 0);
 
     markDiagram(d,"",  0, 1);
+    markLine(gtx, fretToPitch(gtx,2),1,fretToPitch(gtx,4),1, "red");
+    markColor(d, "#9999ff");
     markDiagram(d,"",  2, 1);
+    markColor(d, "blue");
     markDiagram(d,"",  6, 1);
     markDiagram(d,"", 10, 1);
 
     markDiagram(d,"",  0, 2);
+    markLine(gtx, fretToPitch(gtx,2),2,fretToPitch(gtx,4),2, "red");
+    markColor(d, "#99ff99");
     markDiagram(d,"",  3, 2);
+    markColor(d, "blue");
     markDiagram(d,"",  6, 2);
     markDiagram(d,"", 10, 2);
 
     markDiagram(d,"",  0, 3);
     markDiagram(d,"",  4, 3);
+    markLine(gtx, fretToPitch(gtx,6),3,fretToPitch(gtx,8),3, "red");
+    markColor(d, "#9999ff");
     markDiagram(d,"",  6, 3);
+    markColor(d, "blue");
     markDiagram(d,"", 10, 3);
 
     markDiagram(d,"",  0, 4);
     markDiagram(d,"",  4, 4);
+    markLine(gtx, fretToPitch(gtx,6),4,fretToPitch(gtx,8),4, "red");
+    markColor(d, "#99ff99");
     markDiagram(d,"",  7, 4);
+    markColor(d, "blue");
     markDiagram(d,"", 10, 4);
 
     markDiagram(d,"",  0, 5);
     markDiagram(d,"",  4, 5);
     markDiagram(d,"",  8, 5);
+    markLine(gtx, fretToPitch(gtx,10),5,fretToPitch(gtx,12),5, "red");
+    markColor(d, "#9999ff");
     markDiagram(d,"", 10, 5);
+    markColor(d, "blue");
 }
