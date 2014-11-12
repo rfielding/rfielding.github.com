@@ -176,6 +176,41 @@ function doinit() {
     //markDiagram(d, 5, 6, 1);
     markDiagram(d, 5, 0, 2);
     markDiagram(d, 0, 4, 2);
+    markColor(d, "green");
+    markDiagram(d, 1, 7, 2);
+    markColor(d, "blue");
+
+    d = doDiagram("diagram1A", "Minor on E - LS", edo, strings, markers, fretWidth);
+    markLine(gtx, fretToPitch(gtx,0),0,fretToPitch(gtx,6),0, "red");
+    markDiagram(d, 0, 0, 0);
+    markColor(d, "green");
+    markDiagram(d, 1, 4, 0);
+    markColor(d, "blue");
+    markDiagram(d, 2, 6, 0);
+    markDiagram(d, 3, 0, 1);
+    markDiagram(d, 4, 4, 1);
+    //markDiagram(d, 5, 6, 1);
+    markDiagram(d, 5, 0, 2);
+    markDiagram(d, 0, 4, 2);
+    markColor(d, "green");
+    markDiagram(d, 1, 8, 2);
+    markColor(d, "blue");
+
+    d = doDiagram("diagram1B", "Phrygian on E - SL", edo, strings, markers, fretWidth);
+    markLine(gtx, fretToPitch(gtx,0),0,fretToPitch(gtx,6),0, "red");
+    markDiagram(d, 0, 0, 0);
+    markColor(d, "green");
+    markDiagram(d, 1, 2, 0);
+    markColor(d, "blue");
+    markDiagram(d, 2, 6, 0);
+    markDiagram(d, 3, 0, 1);
+    markDiagram(d, 4, 4, 1);
+    //markDiagram(d, 5, 6, 1);
+    markDiagram(d, 5, 0, 2);
+    markDiagram(d, 0, 4, 2);
+    markColor(d, "green");
+    markDiagram(d, 1, 6, 2);
+    markColor(d, "blue");
 
     d = doDiagram("diagram2", "Bayati on B - NN", edo, strings, markers, fretWidth);
     markLine(gtx, fretToPitch(gtx,4),1,fretToPitch(gtx,10),1, "red");
