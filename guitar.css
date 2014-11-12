@@ -11,6 +11,7 @@ h2 {
     padding-right: 16px;
     padding-left: 16px;
     padding-bottom: 8px;
+    border-radius: 16px;
 }
 
 .sheet {
@@ -22,6 +23,7 @@ h2 {
     padding-right: 0px;
     padding-bottom: 8px;
     margin: 20px;
+    border-radius: 16px;
 }
 
 .subsections {
