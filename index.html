@@ -1,1 +1,130 @@
-test
+<html>
+    <head>
+        <title>Guitar.js</title>
+        <script src="guitar.js"></script>
+        <link rel="stylesheet" type="text/css" href="guitar.css"/>
+        <style>
+          body {
+              font-family: Arial;    
+          }
+        </style>
+    </head>
+    <body onload='doinit()'>
+        <div class="sheet">
+            <h2>Modal Quartertone Guitar Theory</h2>
+
+            <div class=subsections>
+                <div style="float:right">
+                    <img src="instruments.jpg"/>
+                </div>
+                These diagrams give an idea of how quartertone modes work.
+                This is loosely based on Maqam music theory (ie: Arabic/Turkish music).
+                This system has a large variety of scales that are built of smaller chunks,
+                and do not force alternation between major and minor tonalities.
+                The use of quartertones gives a lot more scope for using minor tonalities in more places,
+                along with some neutral ones.
+
+                <h3>Instruments</h3>
+                <ul>
+                    <li>Quartertone Electric - Reasonable approximations to Maqam can be played in a rock/metal context
+                    <li>Fretless - Harder to fit in with standard instruments, but more true Maqam is playable 
+                    <li>See <a href="http://www.maqamworld.com/">Maqam World</a> for a more standard treatment
+                        of Maqam, including the microtonal details, and traditional features.
+                </ul>
+                <h3>Patterns</h3>
+                <ul>
+                    <li> keep in mind that fret numbers are <i>double</i> what they are on normal guitar.
+                         conveniently, new strings start on multiples of 10, presuming it is tuned to all fourths as here.
+                    <li> A small tone is the normal half tone in 12ET - 2 frets on quartertone guitar
+                    <li> A large tone is the normal whole tone in 12ET - 4 frets on quartertone guitar
+                    <li> A neutral tone is half-way in between small and large - 3 frets on a quartertone guitar
+                    <li> It is almost always the case that neutral tones appear next to each other in pairs,
+                         such that they span a minor third, and this minor third is on even frets to line up with 12EDO.
+                    <li> 0 4 6 is a "Minor" pattern, due to resembling bottom part of a minor scale. 
+                    <li> 0 2 6 is a "Phrygian" pattern, due to resembling bottom part of a phrygian scale. 
+                    <li> 0 3 6 is a "Bayati" pattern, due to having two neutral seconds right next to each other.
+                </ul>
+            </div>
+
+            <div class=subsections>
+                <h3>Over Minor Pentatonics</h3>
+                When starting out on the root note (E in this case),
+                if we have a <i>Minor Pentatonic</i> backing scale, then we make it <i>Bayati</i> by adding note 1.
+                Being neither <i>Phrygian (ie: Kurd)</i> nor <i>Minor (ie: Nahawand)</i>, choosing Bayati picks note 0 as the clear root.
+                From note 0 to note 2, a minor third is being cut exactly in half; something impossible on a 12EDO instrument.
+                It has two neutral intervals next to each other, noted as "NN":
+                <p> 
+                <canvas id="diagram1"></canvas>
+            </div>
+
+          
+            <div class=subsections> 
+                <h3>Modulating</h3>
+                As we move up, we can either do Phrygian on B, or use Bayati on B.  
+                In this position, Bayati is picked.
+                Note that it exhibits some symmetry with Bayati on E from notes 3 through 5.
+                Note 4 is a quartertone flat from being a fifth above B (an F&#9839;), so it is clearly connected to E.
+                <p>
+                <canvas id="diagram2"></canvas>
+            </div>
+
+            <div class=subsections>
+                <h3>Minor</h3>
+                When modulating down to A, we pick the minor shaped scale.
+                Because we are connecting to adjacent scales like Bayati on E and B, we probably want to preserve the B.
+                It has large then small intervals, noted as "LS":
+                <p>
+                <canvas id="diagram3"></canvas>
+            </div>
+ 
+            <div class=subsections>
+                <h3>F Natural</h3>
+                Similarly, when modulating down to D, we pick the minor shaped scale.
+                Because we want to preserve our minor third, we can make F natural.
+                <canvas id="diagram4"></canvas>
+            </div>
+
+            <div class=subsections>
+                <h3>Phrygian</h3>
+                We can visit Phrygian on E from D.
+                It has small then large intervals, noted as "SL":
+                <p>
+                <canvas id="diagram5"></canvas>
+            </div>
+
+            <div class=subsections>
+                <h3>Hijaz</h3>
+                New scale shape Hijaz (Phrygian sharp fourth).  Note that the wide interval is a major third wide.
+                It is so wide, that sometimes this major third might be cut in half into a pair of intervals.
+                It could be: LS, SL, or NN.  Using NN would be like Bayati on F!
+                <p>
+                <canvas id="diagram6"></canvas>
+            </div>
+
+            <div class=subsections>
+                <h3>Zamzama</h3>
+                Following from this position on F - SLS
+                <p>
+                <canvas id="diagram7"></canvas>
+            </div>
+
+            <div class=subsections>
+                <h3>Saba</h3>
+                Following from this position on F - MMS
+                <p>
+                <canvas id="diagram8"></canvas>
+            </div>
+
+            <div class=subsections>
+                <h3>Rast</h3>
+                Rast is a comon major-like scale (more like Dorian quartersharp minor third).  
+                The root note is 0, but there is strong emphasis on 1 and 4.
+                If 1 were the center, it would be Bayati.
+                Notice the pattern of notes creeping up one fret per string.
+                This is useful for visualizing fretboard location
+                <p>
+                <canvas id="diagram9"></canvas>
+            </div>
+        </div>
+    </body>
+</html>
