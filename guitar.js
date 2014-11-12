@@ -324,4 +324,35 @@ function doinit() {
     markDiagram(d, 8, 8, 4);
     markDiagram(d,-2, 4, 1);
     markDiagram(d,-3, 0, 1);
+
+    d = doDiagram("diagram10", "Generic Arabic Scale shape", edo, strings, markers, fretWidth);
+    //markDiagram(d,"",  0, 0);
+    markDiagram(d,"",  2, 0);
+    markDiagram(d,"",  6, 0);
+    markDiagram(d,"", 10, 0);
+
+    markDiagram(d,"",  0, 1);
+    markDiagram(d,"",  2, 1);
+    markDiagram(d,"",  6, 1);
+    markDiagram(d,"", 10, 1);
+
+    markDiagram(d,"",  0, 2);
+    markDiagram(d,"",  3, 2);
+    markDiagram(d,"",  6, 2);
+    markDiagram(d,"", 10, 2);
+
+    markDiagram(d,"",  0, 3);
+    markDiagram(d,"",  4, 3);
+    markDiagram(d,"",  6, 3);
+    markDiagram(d,"", 10, 3);
+
+    markDiagram(d,"",  0, 4);
+    markDiagram(d,"",  4, 4);
+    markDiagram(d,"",  7, 4);
+    markDiagram(d,"", 10, 4);
+
+    markDiagram(d,"",  0, 5);
+    markDiagram(d,"",  4, 5);
+    markDiagram(d,"",  8, 5);
+    markDiagram(d,"", 10, 5);
 }
