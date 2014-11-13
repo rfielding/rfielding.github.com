@@ -57,7 +57,7 @@ function doDiagram(divid, label, edo, strings, markers, fretWidth) {
         gtx.markerRadius = 3;
         gtx.markColor = "blue";
         ctx = gtx.ctx = c.getContext("2d");
-        ctx.font = "9px Arial";
+        ctx.font = "8px Arial";
 
         var octavePitch = fretToPitch(gtx, gtx.edo);
         var highPitch = fretToPitch(gtx, gtx.edo+1);
@@ -370,4 +370,11 @@ function doinit() {
     markColor(d, "#9999ff");
     markDiagram(d,"", 10, 5);
     markColor(d, "blue");
+
+    d = doDiagram("diagram11", "Harmonics", edo, strings, markers, fretWidth);
+    for(var i=2; i<=18; i++) {
+        var y = (7-i)/3+2.75;
+        markLine(gtx, 2/i, y+0.5, 2/i, y+1.5, "red");
+        fillText(gtx, i, 2/i + 0.01, y);
+    }
 }
