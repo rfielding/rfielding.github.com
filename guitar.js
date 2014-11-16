@@ -371,6 +371,34 @@ function doinit() {
     markDiagram(d,"", 10, 5);
     markColor(d, "blue");
 
+    d = doDiagram("diagram10a", "Generic Rast-like Arabic Scale shape", edo, strings, markers, fretWidth);
+    markColor(d, "blue");
+    markDiagram(d,"",  0, 1);
+    markColor(d, "#99ff99");
+    markDiagram(d,"",  3, 1);
+    markColor(d, "blue");
+    markDiagram(d,"",  6, 1);
+    markColor(d, "#99ff99");
+    markDiagram(d,"",  9, 1);
+    markDiagram(d,"", 11, 1);
+    markColor(d, "blue");
+    markDiagram(d,"",  0, 2);
+    markColor(d, "black");
+    markDiagram(d,"",  3, 2);
+    markColor(d, "#99ff99");
+    markDiagram(d,"",  7, 2);
+    markColor(d, "blue");
+    markDiagram(d,"",  0, 3);
+    markColor(d, "#99ff99");
+    markDiagram(d,"",  3, 3);
+    markDiagram(d,"",  7, 3);
+    markColor(d, "blue");
+    markDiagram(d,"",  0, 4);
+    markColor(d, "#99ff99");
+    markDiagram(d,"",  3, 4);
+    markColor(d, "black");
+    markDiagram(d,"",  7, 4);
+
     d = doDiagram("diagram11", "Harmonics", edo, strings, markers, fretWidth);
     for(var i=2; i<=18; i++) {
         var y = (7-i)/3+2.75;
