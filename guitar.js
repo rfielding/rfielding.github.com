@@ -409,4 +409,39 @@ function doinit() {
         d.strokeColor = "black";
         d.fillColor = "black";
     }
+
+    var edo2       = 53;
+    var strings2   = ["E", "A", "D", "G", "C", "F"];
+    var markers2   = [9, 18, 22, 31];
+    var fretWidth2 = function(i){
+        //31 frets is a perfect fifth,
+        //22 frets is a perfect fourth
+        //So make the fret width a function of how far away from root pitch it is
+        //The fret width is basically a discrete log
+        var widtha=4;
+        var widthb=4;
+        var j=0;
+        while(j != (i%53)) {
+            j = (j + 31) % 53;
+            widtha *= 0.8;
+        }
+        var j=0;
+        while(j != (i%53)) {
+            j = (j + 22) % 53;
+            widthb *= 0.8;
+        }
+        return widtha+widthb+0.1;
+    }
+
+    //Do the same with 53 equal
+    d = doDiagram("diagram12", "53 Equal Temperment - tuned by harmonics", edo2, strings2, markers2, fretWidth2);
+    for(var i=2; i<=19; i++) {
+        var y = (7-i)/3+2.75;
+        markLine(d, 2/i, y+0.5, 2/i, y+1.5, "red");
+        d.strokeColor = "blue";
+        d.fillColor = "blue";
+        fillText(d, i, 2/i + 0.01, y);
+        d.strokeColor = "black";
+        d.fillColor = "black";
+    }
 }

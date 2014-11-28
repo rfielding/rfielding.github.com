@@ -196,6 +196,81 @@
                 the F up a little bit to clean up the chord.  The locations of the harmonics make it clear
                 what the pattern of adjustments for intervals is going to be.
             </div>
+            <div class=subsections>
+                <h3>53 Equal Temperment</h3>
+                In books on Maqam, the topic of alternate equal temperments as landmarks
+                comes up.  After 24 equal as a useful approximation (for notating notes especially),
+                53 equal arises as a way to accurately reason about the microtonal details.
+                (See Touma's book "Music Of The Arabs").
+                <p>
+                Maqam is closely tied to Pythagorean tuning, where scales can be roughly thought of as
+                a span of perfect fifths.
+                A span of 53 perfect fifths comes so close to closing into a circle, that as
+                far as this drawing goes, it doesn't matter whether we literally draw a scale
+                created by spanning 53 perfect fifths or using 53 equal temperment.
+                See how well the more important harmonics line up with fret locations.
+                <p>
+                <canvas id="diagram12"></canvas>
+                <p>
+                The fret widths draw were <b>automatically</b> generated based on how close they
+                are in the perfect circle of fifths.
+                Many instruments only include a subset of these frets, using a span of 22 fifths.
+                That leaves a pattern where whole tones are cut into 9 equal parts, where
+                whole tones (from fret 0 to fret 9, a pitch difference of 9/8) have no exact semitone.
+                There is a semitone at either 4 or 5, for high or low semitones.
+                Usually, the large semitone is used, as it more closely matches actual harmonics.
+                When moving from note to note, there are temporary chords of a semitone going on.
+                <p>
+                In this system:
+                <ul>
+                  <li>A fifth is 31 frets
+                  <li>A fourth is 22 frets (and is how we tune the strings to each other)
+                  <li>A large whole tone is 9 frets, corresponding to 9/8 pitch.
+                  <li>A small whole tone is 8 frets, corresponding to 10/9 pitch.
+                  <li>The harmonic series says that a minor third is fret 14 for 6/5 pitch.
+                  <li>But by perfect circle of fifths (ie: Pythagorean reasoning), a minor third is fret 13, corresponding to (3/2)^4 (ie: if you tune a guitar with harmonics E A D G, G will be (3/2)^4, which is 81/16, which brought into current octave is 81/64).
+                  <li>Similarly, the choice of major third by harmonics pitch 5/4.  That matches fret 17 quite closely.  But by Pythagorean reasoning, this is two whole tones up to fret 18.
+                  <li>In both cases, the ratio 81/80 makes the difference between harmonics and Pythagorean reasoning.
+                  <li>In spite of Maqam being strongly oriented around quartertone intervals, 
+                      the best choice for a quartertone is 13/12.  In practice, 11/10 is
+                      usually what is meant by a quartertone, but it doesn't quite match a 53et
+                      fret.  Sometimes 12/11 is meant (in between 13/12 and 11/10), but it also
+                      isn't quite accurately represented by a 53equal fret.  In this case though,
+                      if notes are notated in 53et with a qualification that the note is a little
+                      low or high, there can be very little doubt as to exactly what pitch is implied.
+                </ul>
+                When reading ambiguous statements like, 
+                "the major third of Ajam needs to be lowered a little bit to be more mellow",
+                the reasoning behind it is much more obvious when the fretboard is at least
+                thought of in terms of 53 equal temperment.  In that case, the idea is to make the
+                major third match 6/5.
+                <p>
+                As a side-note about a common definition of "Sruti", a span of 22 perfect fifths 
+                will cause a scale that is very close to 12et to arise; except every note other than
+                the root and fifth will have a doubled partner very close by 
+                (roughly distance 81/80 away).  Similarly, a span of 17 perfect fifths gives a
+                Pythagorean intonation where sharps and flats are distinct, like split black keys.
+                Then spanning only 12 gives the true Pythagorean piano tuning, with its wolf interval
+                among an otherwise fantastic intonation.  Spanning 7 gives a purely intoned diatonic
+                scale, and spanning 5 gives a purely intoned pentatonic scale.
+                <p>
+                <img src="sruti.jpg">
+                <p>
+                Using this diagram, you can calculate explicitly how to reach a 53et fret
+                by navigating in terms of only fourths, fifths, maj third, min third.
+                The given ratios are just the more obvious equivalent ratios at that location,
+                but 6/5 and 81/64 are the same location.  The point of this diagram is to show
+                that 12et is an approximation of this Sruti span of 22 perfect fifths.  And
+                even though it's defined in terms of "3-limit" (pure fifths), it actually contains
+                some "5-limit" (including Just Intonation thirds).  And finally, the 53 equal
+                temperment encompasses them both.  To some degree, this whole system exists
+                as a side-effect of people playing string instruments with the strings tuned
+                fourths and fifths apart; where the 81/80 pitch drift depending on melodic path
+                is an issue that must be explicitly dealt with.  12et simply equates these close
+                note pairs to make them go away in theory, but this issue still exists physically
+                in the sound; creating a tension between clean chorde timbre (ie: beating) versus
+                having distinct notes playing from the same pitch set.
+            </div>
         </div>
 
         <div class="sheet">
