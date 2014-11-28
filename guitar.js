@@ -444,4 +444,43 @@ function doinit() {
         d.strokeColor = "black";
         d.fillColor = "black";
     }
+
+    var edo3       = 31;
+    var strings3   = ["E", "A", "D", "G", "C", "F"];
+    var markers3   = [5, 8, 13, 18, 26];
+    var fretWidth3 = function(i){
+/*
+        //31 frets is a perfect fifth,
+        //22 frets is a perfect fourth
+        //So make the fret width a function of how far away from root pitch it is
+        //The fret width is basically a discrete log
+        var widtha=4;
+        var widthb=4;
+        var j=0;
+        while(j != (i%31)) {
+            j = (j + 31) % 31;
+            widtha *= 0.8;
+        }
+        var j=0;
+        while(j != (i%31)) {
+            j = (j + 22) % 31;
+            widthb *= 0.8;
+        }
+        return widtha+widthb+0.1;
+*/
+        return 1;
+    }
+
+    //Do the same with 53 equal
+    //Do the same with 31 equal
+    d = doDiagram("diagram13", "31 Equal Temperment", edo3, strings3, markers3, fretWidth3);
+    for(var i=2; i<=19; i++) {
+        var y = (7-i)/3+2.75;
+        markLine(d, 2/i, y+0.5, 2/i, y+1.5, "red");
+        d.strokeColor = "blue";
+        d.fillColor = "blue";
+        fillText(d, i, 2/i + 0.01, y);
+        d.strokeColor = "black";
+        d.fillColor = "black";
+    }
 }
