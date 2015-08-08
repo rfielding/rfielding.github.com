@@ -36,11 +36,22 @@
 	    similar to guitar pedal stompbox devices.
 	    The point is in doing these C++ projects that run under very tight size and real-time constraints.
 
+	    <p>
+
+	    This pedal takes all incoming MIDI messages and:
+	    <ul>
+		    <li>Assume they are all on the same channel
+		    <li>Remember which key last went down
+		    <li>Do a virtual octave switch up or down depending on which will make the interval jump shorter
+		    <li>Take the bottom half of the keyboard below middle-C and reserve it for completely different relative jump functionality
+		    <li>This is relatively straightforward Serial Port code, except you cannot block for IO on Arduino, so
+		    it ends up being a tricky state machine to get everything right.
+		    <li> <a href=https://github.com/rfielding/octaveRounder>Source code on github</a>
+	    </ul>
 
 		    <img width=200 height=200 src=http://cdn2.bigcommerce.com/n-zfvgw8/juoflv6a/products/226/images/433/MIDI_shield_1__25148.1381483734.1280.1280.jpg?c=2>
 		    <img width=200 height=200 src=http://www.robotshop.com/media/files/images2/rb-ard-34-1.jpg>
          	</div>
-	    <a href=https://github.com/rfielding/octaveRounder>Source code on github</a>
     	</div>
 
         <div class="sheet">
