@@ -58,6 +58,10 @@
           background-color: green;
         }
 
+        .textareaHidden {
+            white-space: pre;
+        }
+
     </style>
     <script>
       var perkinsMode = false;
@@ -158,7 +162,12 @@
         var hidden = document.getElementById("textareaHidden");
         var i=0;
         for(i=0; i < original.length; i++) {
-          unicodeOutput += String.fromCharCode(0x2800 + byteMap[original.charCodeAt(i)]);
+          var c = original.charCodeAt(i);
+          if(c == 0x0A || c == 0x0D) {
+            unicodeOutput += "\n";
+          } else {
+            unicodeOutput += String.fromCharCode(0x2800 + byteMap[c]);
+          }
         }
         hidden.innerText = unicodeOutput;
         navigator.clipboard.writeText(unicodeOutput);
@@ -370,7 +379,7 @@
           class="textarea2" 
           width="42em">
         </div>
-        <div id="textareaHidden"></div>
+        <div class="textareaHidden" id="textareaHidden"></div>
       </td>
     </tr>
   </table>
