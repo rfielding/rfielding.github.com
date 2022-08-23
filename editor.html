@@ -153,7 +153,19 @@
           document.getElementById("textarea1").value = pages[pageNumber];
           document.getElementById("textarea1").selectionStart = 0;
           document.getElementById("textarea1").selectionEnd = 0;
-          console.log("updated page");
+      }
+
+      function doPageUp() {
+          pageNumber++;
+          setTimeout(setPageNumber,0);
+      }
+
+      function doPageDown() {
+          if(pageNumber <= 1) {
+            return false;
+          }
+          pageNumber--;
+          setTimeout(setPageNumber,0);
       }
 
       function brlCopy() {
@@ -185,18 +197,13 @@
           return false;
         }
 
-        if(e.code == "PageUp") {
-          pageNumber++;
-          setTimeout(setPageNumber,0);
+        if(e.key == "PageUp") {
+          doPageUp();
           return false;
         }
 
-        if(e.code == "PageDown") {
-          if(pageNumber <= 1) {
-            return false;
-          }
-          pageNumber--;
-          setTimeout(setPageNumber,0);
+        if(e.key == "PageDown") {
+          doPageDown();
           return false;
         }
 
@@ -249,10 +256,10 @@
         if(e.ctrlKey && e.code == "KeyB") {
           return false;
         }
-        if(e.code == "PageUp") {
+        if(e.key == "PageUp") {
           return false;
         }
-        if(e.code == "PageDown") {
+        if(e.key == "PageDown") {
           return false;
         }
 
