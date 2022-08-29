@@ -15,6 +15,7 @@
         }
 
         .textarea1 {
+            background-color: #f0f0f0;
             white-space: pre-wrap;
             border: none;
             outline: none;
@@ -335,8 +336,7 @@
       }
     </script>
 </head>
-<body>
-  <h1><img valign=center src="orbitreader20.png" width="60px"> 8-dot Computer Braille</h1>
+<body style="margin:0px">
   <table width="100%" cellpadding=0 cellspacing=0>
     <tr>
       <td colspan=2 class="mode">
@@ -345,6 +345,10 @@
                 <td class="dotoff" id="dot1">F</td>
                 <td class="dotoff" id="dot4">J</td>
                 <td rowspan=4>
+                  <div style="font-size:50px">
+                  <img halign=center src="orbitreader20.png" width="60px">
+                  8-dot Computer Braille
+                  </div>
                   [<span id="escmode">ESC -- QWERTY</span>]
                   [<span id="pageup">PGUP</span>/<span id="pagedown">PGDN</span> - <span id="pageNumber">Page 1</span>]
                   [<span id="brlcp">CTRL-B -- Copy selected to Unicode Braille</span>]
@@ -376,8 +380,8 @@
           spellcheck="false"
           class="textarea1" 
           name="name" 
-          rows="26" 
           cols="42"
+          rows="26"
           autofocus
           width="100%"></textarea>
       </td>
