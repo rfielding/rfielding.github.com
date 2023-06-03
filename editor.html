@@ -15,7 +15,8 @@
         }
 
         .textarea1 {
-            background-color: #f0f0f0;
+            background-color: #000000;
+            color: #ffffff;
             white-space: pre-wrap;
             border: none;
             outline: none;
@@ -37,6 +38,8 @@
         }
 
         .textarea2 {
+            color: white;
+            background-color: black;
             white-space: pre;
             padding: 1%;
             font-size: 24pt;
@@ -60,6 +63,8 @@
         }
 
         .textareaHidden {
+            color: white;
+            background-color: black;
             white-space: pre;
         }
 
@@ -336,7 +341,8 @@
       }
     </script>
 </head>
-<body style="margin:0px">
+
+<body style="margin:0px; background-color: #222222; color: #ffffff">
   <table width="100%" cellpadding=0 cellspacing=0>
     <tr>
       <td colspan=2 class="mode">
@@ -373,6 +379,7 @@
       <td colspan=2>
         <div class="help" id="help">Use the QWERTY keyboard normally. ESC for Perkins.</div>
       </td>
+
     </tr>
     <tr>
       <td width=50% valign="top" halign="left">
@@ -391,6 +398,29 @@
           width="42em">
         </div>
         <div class="textareaHidden" id="textareaHidden"></div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        Notes about the iPhone case braille mechanical keyboard:
+        <ul>
+          <li>It is based on a 4x4 grid of keys, where you type with fingers wrapped around to the <i>back</i> of the iPhone case.
+          <li>The extra keys follow patterns of the vim text editor.
+          <li>h+dot8 - left arrow
+          <li>j+dot8 - down arrow
+          <li>k+dot8 - up arrow
+          <li>l+dot8 - right arrow
+          <li>h+dot7+dot8 - home arrow
+          <li>j+dot7+dot8 - pageDown arrow
+          <li>k+dot7+dot8 - pageUp arrow
+          <li>l+dot7+dot8 - end arrow
+          <li>space - dot8
+          <li>backspace - dot7
+          <li>return - dot7+dot8
+          <li>There are dedicated keys to chord with: tab, shift, alt, ctrl, win, fn, repeat
+        </ul> 
+        Other than these overrides, these braille dots are everything else:
+        <a href="https://github.com/rfielding/teeny/tree/master/cmd/brascii">Main Mapping and code</a>
       </td>
     </tr>
   </table>
