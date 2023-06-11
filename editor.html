@@ -177,10 +177,9 @@
 
       // I give up on this for now. The permissions model makes it too hard.
       function setClipboard(text) {
-       
         if(!navigator.hasOwnProperty('clipboard')) {
           var hidden = document.getElementById("textareaHidden");
-          console.log("enable clipboard access.\nin Chrome example:\n  Security & Privacy >\n    Site Settings >\n    Permissions >\n    Clipboard. Allow");
+          console.log("enable clipboard access, or download this file and the images and fonts to run locally.");
         } else {
           const type = "text/plain";
           const blob = new Blob([text], { type });
