@@ -177,7 +177,7 @@
 
       function setClipboard(text) {
        
-        if(navigator.hasOwnProperty('clipboard')) {
+        if(!navigator.hasOwnProperty('clipboard')) {
           var hidden = document.getElementById("textareaHidden");
           hidden.innerText = "enable clipboard access.\nin Chrome:\n  Security & Privacy >\n    Site Settings >\n    Permissions >\n    Clipboard. Allow";
         } else {
