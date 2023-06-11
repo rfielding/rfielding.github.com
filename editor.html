@@ -179,15 +179,19 @@
         const type = "text/plain";
         const blob = new Blob([text], { type });
         const data = [new ClipboardItem({ [type]: blob })];
-        
-        navigator.clipboard.write(data).then(
-          () => {
-            console.log("wrote braille to clipboard");
-          },
-          () => {
-            console.log("failed to write braille to clipboard");
-          }
-        );
+       
+        if(! navigator.clipboard ) {
+          console.log("enable clipboard access. in Chrome: Security & Privacy > Site Settings > Permissions > Clipboard. Allow");
+        } else {
+          navigator.clipboard.write(data).then(
+            () => {
+              console.log("wrote braille to clipboard");
+            },
+            () => {
+              console.log("failed to write braille to clipboard");
+            }
+          );
+        }
       }
 
       function brlCopy() {
