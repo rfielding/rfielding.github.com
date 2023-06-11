@@ -176,14 +176,14 @@
       }
 
       function setClipboard(text) {
-        const type = "text/plain";
-        const blob = new Blob([text], { type });
-        const data = [new ClipboardItem({ [type]: blob })];
        
         if(navigator.hasOwnProperty('clipboard')) {
           var hidden = document.getElementById("textareaHidden");
           hidden.innerText = "enable clipboard access.\nin Chrome:\n  Security & Privacy >\n    Site Settings >\n    Permissions >\n    Clipboard. Allow";
         } else {
+          const type = "text/plain";
+          const blob = new Blob([text], { type });
+          const data = [new ClipboardItem({ [type]: blob })];
           navigator.clipboard.write(data).then(
             () => {
               console.log("wrote braille to clipboard");
