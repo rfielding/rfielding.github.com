@@ -180,7 +180,7 @@
         const blob = new Blob([text], { type });
         const data = [new ClipboardItem({ [type]: blob })];
        
-        if('clipboard' in navigator ) {
+        if(navigator.hasOwnProperty('clipboard')) {
           var hidden = document.getElementById("textareaHidden");
           hidden.innerText = "enable clipboard access.\nin Chrome:\n  Security & Privacy >\n    Site Settings >\n    Permissions >\n    Clipboard. Allow");
         } else {
