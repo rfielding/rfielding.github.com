@@ -42,8 +42,8 @@
             background-color: black;
             white-space: pre;
             padding: 1%;
-            font-family: monospace;
             font-size: 24pt;
+            font-family: monospace;
             line-height: 1.0;
         }
 
@@ -62,11 +62,11 @@
         }
 
         .textareaHidden {
-            color: white;
+            color: grey;
             background-color: black;
+            white-space: pre;
             font-size: 20pt;
             font-style: oblique 14deg;
-            white-space: pre;
         }
 
     </style>
@@ -175,6 +175,21 @@
           setTimeout(setPageNumber,0);
       }
 
+      function setClipboard(text) {
+        const type = "text/plain";
+        const blob = new Blob([text], { type });
+        const data = [new ClipboardItem({ [type]: blob })];
+        
+        navigator.clipboard.write(data).then(
+          () => {
+            console.log("wrote braille to clipboard");
+          },
+          () => {
+            console.log("failed to write braille to clipboard");
+          }
+        );
+      }
+
       function brlCopy() {
         var unicodeOutput = "";
         var original = document.getElementById("textarea1").value;
@@ -188,8 +203,8 @@
             unicodeOutput += String.fromCharCode(0x2800 + byteMap[c]);
           }
         }
+        setClipboard(unicodeOutput);
         hidden.innerText = unicodeOutput;
-        navigator.clipboard.writeText(unicodeOutput);
         hidden.innerText = "";
       }
 
@@ -198,7 +213,6 @@
         if(byteMap[0] == 0) {
           byteMapInit();
         }
-
         if(e.ctrlKey && e.code == "KeyB") {
           brlCopy();
           return false;
