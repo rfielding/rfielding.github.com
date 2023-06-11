@@ -179,7 +179,7 @@
        
         if(!navigator.hasOwnProperty('clipboard')) {
           var hidden = document.getElementById("textareaHidden");
-          hidden.innerText = "enable clipboard access.\nin Chrome:\n  Security & Privacy >\n    Site Settings >\n    Permissions >\n    Clipboard. Allow";
+          alert("enable clipboard access.\nin Chrome:\n  Security & Privacy >\n    Site Settings >\n    Permissions >\n    Clipboard. Allow");
         } else {
           const type = "text/plain";
           const blob = new Blob([text], { type });
