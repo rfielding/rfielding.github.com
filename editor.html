@@ -181,7 +181,8 @@
         const data = [new ClipboardItem({ [type]: blob })];
        
         if(! navigator.clipboard ) {
-          console.log("enable clipboard access. in Chrome: Security & Privacy > Site Settings > Permissions > Clipboard. Allow");
+          var hidden = document.getElementById("textareaHidden");
+          hidden.innerText = "enable clipboard access.\nin Chrome:\n  Security & Privacy >\n    Site Settings >\n    Permissions >\n    Clipboard. Allow");
         } else {
           navigator.clipboard.write(data).then(
             () => {
