@@ -140,6 +140,9 @@
         for(i = 0x40; i < 0x60; i++) {
           byteMap[i] += 64;
         }
+        byteMapTmp := byteMap[0x7F]
+        byteMap[0x7F] = byteMap[0x5F]
+        byteMap[0x5F] = byteMapTmp
         // Copy whole map to top and set dot 8
         for(i = 0x00; i < 0x80; i++) {
           byteMap[i+0x80] = byteMap[i] + 128;
