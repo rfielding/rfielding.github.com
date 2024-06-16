@@ -7,24 +7,24 @@
     <style>
         body {
           font-family: monospace;
+          font-size: 8pt;
         }
 
         @font-face {
-          font-family: "orbitreader2";
-          src: url("orbitreader2.woff") format('woff');
+          font-family: "asciibraille";
+          src: url("asciibraille.woff") format('woff');
         }
 
         .textarea1 {
             background-color: #000000;
             color: #ffffff;
-            white-space: pre-wrap;
+//            white-space: pre-wrap;
             border: none;
             outline: none;
             spellcheck: false;
-            padding: 1%;
-            font-size: 24pt;
-            line-height: 1.0;
-            font-family: orbitreader2;
+//            padding: 1%;
+            font-family: asciibraille;
+            font-size: 8pt;
         }
 
 	.mode {
@@ -35,16 +35,6 @@
         .help {
             font-size: 10pt;
             font-style: italic;
-        }
-
-        .textarea2 {
-            color: white;
-            background-color: black;
-            white-space: pre;
-            padding: 1%;
-            font-size: 24pt;
-            font-family: monospace;
-            line-height: 1.0;
         }
 
         .dotoff {
@@ -66,7 +56,6 @@
             background-color: black;
             white-space: pre;
             font-size: 20pt;
-//            font-style: oblique 0deg;
         }
 
     </style>
@@ -160,7 +149,6 @@
             pages[pageNumber] = "";
           }
           document.getElementById("pageNumber").innerText = "Page " + pageNumber;
-          document.getElementById("textarea2").innerText = pages[pageNumber];
           document.getElementById("textarea1").value = pages[pageNumber];
           document.getElementById("textarea1").selectionStart = 0;
           document.getElementById("textarea1").selectionEnd = 0;
@@ -297,7 +285,6 @@
 
         // Track dots keys
         var t1 = document.getElementById("textarea1");
-        var t2 = document.getElementById("textarea2");
         var dot1 = document.getElementById("dot1");
         var dot2 = document.getElementById("dot2");
         var dot3 = document.getElementById("dot3");
@@ -349,8 +336,7 @@
 
         // If it's some different key, then just emit
         if(!perkinsMode || !isDot) {
-          t2.innerText = textarea1.value;
-          pages[pageNumber] = t2.innerText;
+          pages[pageNumber] = textarea1.value;
           brlCopy();
           return true;
         }
@@ -361,8 +347,7 @@
             textarea1.value.slice(0,at) + c + textarea1.value.slice(at);
           textarea1.selectionStart = at+1;
           textarea1.selectionEnd = at+1;
-          t2.innerText = textarea1.value;
-          pages[pageNumber] = t2.innerText;
+          pages[pageNumber] = textarea1.value;
           brlCopy();
         }
         return false;
@@ -373,7 +358,7 @@
 <body style="margin:0px; background-color: #222222; color: #ffffff">
   <table width="100%" cellpadding=0 cellspacing=0>
     <tr>
-      <td colspan=2 class="mode">
+      <td class="mode">
             <table>
               <tr>
                 <td class="dotoff" id="dot1">F</td>
@@ -403,34 +388,35 @@
       </td>
     </tr>
     <tr>
-      <td colspan=2>
+      <td>
         <div class="help" id="help">Use the QWERTY keyboard normally. ESC for Perkins.</div>
       </td>
-
     </tr>
     <tr>
-      <td width=50% valign="top" halign="left">
-        <textarea id="textarea1"
-          spellcheck="false"
-          class="textarea1" 
-          name="name" 
-          cols="42"
-          rows="26"
-          autofocus
-          width="100%"></textarea>
-      </td>
-      <td width=50% valign="top" halign="left">
-        Plaintext<br>
-        <div id="textarea2"
-          class="textarea2" 
-          width="42em">
-        </div>
-        <br>Unicode Braille<br>
+      <td width=100% valign="top" halign="left">
+        <br>Unicode Braille for you to copy out<br>
         <div class="textareaHidden" id="textareaHidden"></div>
       </td>
     </tr>
     <tr>
-      <td colspan=2>
+      <td width=100% valign="top" halign="left">
+        Type 8-dot Computer Braille in here.
+      </td>
+    </tr>
+    <tr>
+      <td width=100% valign="top" halign="left">
+        <textarea id="textarea1"
+          autofocus
+          spellcheck="false"
+          class="textarea1" 
+          name="name"
+          cols="80"
+          rows="26"
+          width="100%"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>
         Notes about the iPhone case braille mechanical keyboard:
         <ul>
           <li>It is based on a 4x4 grid of keys, where you type with fingers wrapped around to the <i>back</i> of the iPhone case.
