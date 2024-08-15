@@ -9,7 +9,7 @@
           font-family: monospace;
           font-size: 8pt;
         }
-
+        
         @font-face {
           font-family: "asciibraille";
           src: url("asciibraille.woff") format('woff');
@@ -38,6 +38,9 @@
             overflow: auto;
             font-size: 14pt;
             width=100%;
+            display: block;
+            word-wrap: break-word;
+            white-space: normal;
         }
 
 	.mode {
@@ -404,7 +407,7 @@
      spellcheck="false" 
    ></textarea>
 
-   <div class="textareaHidden" id="textareaHidden"></div>
+   <span class="textareaHidden" id="textareaHidden"></span>
 </body>
   
 </html>
