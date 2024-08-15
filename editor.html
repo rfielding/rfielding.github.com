@@ -178,24 +178,24 @@
           setTimeout(setPageNumber,0);
       }
 
-      // I give up on this for now. The permissions model makes it too hard.
-      function setClipboard(text) {
-        if(!navigator.hasOwnProperty('clipboard')) {
-          var hidden = document.getElementById("textareaHidden");
-          console.log("enable clipboard access, or download this file and the images and fonts to run locally.");
-        } else {
-          const type = "text/plain";
-          const blob = new Blob([text], { type });
-          const data = [new ClipboardItem({ [type]: blob })];
-          navigator.clipboard.write(data).then(
-            () => {
-              console.log("wrote braille to clipboard");
-            },
-            () => {
-              console.log("failed to write braille to clipboard");
-            }
-          );
-        }
+      function copyToClipboard() {
+          // Get the text content of the hidden span
+          var textToCopy = document.getElementById("textareaHidden").textContent;
+
+          // Create a temporary textarea element to select the text
+          var tempTextarea = document.createElement("textarea");
+          tempTextarea.value = textToCopy;
+          document.body.appendChild(tempTextarea);
+
+          // Select the content
+          tempTextarea.select();
+          tempTextarea.setSelectionRange(0, 99999); // For mobile devices
+
+          // Copy the content to the clipboard
+          document.execCommand("copy");
+
+          // Remove the temporary textarea
+          document.body.removeChild(tempTextarea);
       }
 
       function brlCopy() {
@@ -212,8 +212,9 @@
           }
         }
         unicodeOutput = unicodeStrs.join("");
-        //setClipboard(unicodeOutput);
         hidden.innerText = unicodeOutput;
+
+        // copy value into the clipboard
       }
 
       document.onkeydown = function(e) {
@@ -408,6 +409,8 @@
    ></textarea>
 
    <span class="textareaHidden" id="textareaHidden"></span>
+  
+  <button onclick="copyToClipboard()">Copy To Clipbpard</button>
 </body>
   
 </html>
