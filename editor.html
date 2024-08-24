@@ -9,6 +9,23 @@
           font-family: monospace;
           font-size: 8pt;
         }
+
+        a:link {
+          color: blue;
+          text-decoration: none;
+        }
+        a:visited {
+          color: blue;
+          text-decoration: none;
+        }
+        a:hover {
+          color: #8888FFFF;
+          text-decoration: none;
+        }
+        a:active {
+          color: #8888FFFF;
+          text-decoration: none;
+        }
         
         @font-face {
           font-family: "asciibraille";
@@ -17,9 +34,9 @@
 
         textarea {
             background-color: #000000;
-            color: #ffffff;
+            color: white;
             font-family: asciibraille;
-            font-size: 28pt; /* no idea how point size maps, but it's about 2x*/
+            font-size: 40pt; /* no idea how point size maps, but it's about 2x*/
             width: 100%;
         }
 
@@ -32,11 +49,11 @@
 
         .textareaHidden {
             background-color: black;
-            color: grey;
+            color: #00FF00FF;
             box-sizing: border-box;
             resize: both;
             overflow: auto;
-            font-size: 14pt;
+            font-size: 20pt;
             width=100%;
             display: block;
             word-wrap: break-word;
@@ -410,14 +427,14 @@
 
    <span class="textareaHidden" id="textareaHidden"></span>
   
-  <button onclick="copyToClipboard()">Copy To Clipbpard</button>
-  <hr>
-    <a href="https://github.com/rfielding/mf">The fonts, ./ff is this one.</a>
-    <br>
-    <a href="https://github.com/rfielding">Other code</a>
-    <br>
-    <a href="https://rfielding.github.io">Miscellaneous</a>
-    <br>
+  <button style="color:white;background-color:black" onclick="copyToClipboard()">Copy To Clipbpard</button>
+<p>
+Links:
+  <ul>
+    <li><a href="https://github.com/rfielding/mf">The fonts, ./ff is this one.</a>
+    <li><a href="https://github.com/rfielding">Other code</a>
+    <li><a href="https://rfielding.github.io">Miscellaneous</a>
+  </ul>
 </body>
   
 </html>
