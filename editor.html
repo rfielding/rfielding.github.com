@@ -6,7 +6,8 @@
     <title>8-dot Braille Typewriter</title>
     <style>
         body {
-          font-family: monospace;
+          font-family: "regular";
+          src: url("AtkinsonHyperlegible-Regular.ttf") format('ttf');
           font-size: 8pt;
         }
 
@@ -67,7 +68,6 @@
 
         .help {
             font-size: 10pt;
-            font-style: italic;
         }
 
         .dotoff {
@@ -302,6 +302,7 @@
           return false;
         }
         if(e.ctrlKey && e.code == "KeyB") {
+          copyToClipboard();
           return false;
         }
         if(e.key == "PageUp") {
@@ -427,7 +428,7 @@
 
    <span class="textareaHidden" id="textareaHidden"></span>
   
-  <button style="color:white;background-color:black" onclick="copyToClipboard()">Copy To Clipbpard</button>
+  <button style="color:white;background-color:black" onclick="copyToClipboard()">Copy To Clipboard</button>
 <p>
 Links:
   <ul>
