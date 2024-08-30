@@ -5,12 +5,18 @@
     <meta charset="utf-8">
     <title>8-dot Braille Typewriter</title>
     <style>
+        @font-face {
+          font-family: "regular";
+          src: url("AtkinsonHyperlegible-Regular.ttf");
+        }
         body {
           font-family: "regular";
-          src: url("AtkinsonHyperlegible-Regular.ttf") format('ttf');
           font-size: 8pt;
         }
-
+        button {
+          color: white;
+          background-color: black;
+        }
         a:link {
           color: blue;
           text-decoration: none;
@@ -428,7 +434,7 @@
 
    <span class="textareaHidden" id="textareaHidden"></span>
   
-  <button style="color:white;background-color:black" onclick="copyToClipboard()">Copy To Clipboard</button>
+  <button onclick="copyToClipboard()">Copy To Clipboard</button>
 <p>
 Links:
   <ul>
