@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6-Sided to 5-Sided Stars</title>
+</head>
+<body bgcolor="000000" color="ffffff">
+  <canvas width="100%" height="100%" id="patternCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById("patternCanvas");
+    const ctx = canvas.getContext("2d");
+
+    linesDrawn = 0;
+    a = 1;
+    b = 1;
+    c = 1;
+    d = 1;
+
+    // Set canvas size
+    canvas.width = 800;
+    canvas.height = 800;
+
+
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
+    // Utility function: Save and translate the context
+    function saveAndTranslate(x, y, angle = 0) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(angle); // Rotate the context to align with the current point
+    }
+
+    function restore() {
+      ctx.restore();
+    }
+
+    // Function to draw a line with a higher-order stroke
+    function drawOutlinedLine(x1, y1, x2, y2) {
+      linesDrawn++;
+      // a few lines of trash i cannot find are removed here
+      if(linesDrawn < 7) {
+          return;
+      }
+
+      // Outer white stroke
+      ctx.strokeStyle = "white";
+      ctx.lineWidth = 12;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+
+      // Inner black stroke
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 8*d;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    }
+
+    // Function to draw a star
+    function drawStar(sides, radius, step, rotation = 0) {
+      const points = [];
+      for (let i = 0; i < sides; i++) {
+        const angle = (i * step * 2 * Math.PI) / sides + rotation;
+        points.push({
+          x: Math.cos(2*angle) * radius,
+          y: Math.sin(2*angle) * radius,
+        });
+      }
+
+      // Draw the star lines
+      for (let i = 0; i < sides; i++) {
+        const start = points[i];
+        const end = points[(i + step) % sides];
+        drawOutlinedLine(start.x, start.y, end.x, end.y);
+      }
+    }
+
+    // Function to draw a polygon
+    function drawPolygon(sides, radius, rotation = 0) {
+      const points = [];
+      for (let i = 0; i < sides; i++) {
+        const angle = (i * 2 * Math.PI) / sides + rotation;
+        points.push({
+          x: Math.cos(angle) * radius,
+          y: Math.sin(angle) * radius,
+        });
+      }
+
+      // Draw the polygon lines
+      for (let i = 0; i < sides; i++) {
+        const start = points[i];
+        const end = points[(i + 1) % sides];
+        drawOutlinedLine(start.x, start.y, end.x, end.y);
+      }
+
+      return points; // Return the points for further placement
+    }
+
+    // Draw the full pattern
+    function drawFullPattern() {
+      ctx.fillStyle = "black";
+      ctx.fillRect(-canvas.width,-canvas.height,2*canvas.width,2*canvas.height);
+
+      // Step 1: Draw the central 6-sided hexagon
+      const hexagonRadius = 160*c;
+      const hexagonPoints = drawPolygon(6, hexagonRadius, 0);
+
+      // Step 2: At each hexagon vertex, draw a 6-sided star
+      const starRadius = 20*a;
+      for (const point of hexagonPoints) {
+        const angleToCenter = Math.atan2(point.y, point.x); // Angle relative to the center
+        saveAndTranslate(centerX + point.x, centerY + point.y, angleToCenter);
+        drawStar(6, 8*starRadius, 2);
+        restore();
+      }
+
+      // Step 3: At each point of the 6-sided stars, draw 5-sided stars
+      const outerStarRadius = 40*b;
+      for (const point of hexagonPoints) {
+        const angleToCenter = Math.atan2(point.y, point.x); // Angle relative to the center
+        saveAndTranslate(centerX + point.x, centerY + point.y, angleToCenter);
+
+        // Get the points of the 6-sided star to position 5-sided stars
+        const starPoints = [];
+        for (let i = 0; i < 6; i++) {
+          const angle = (i * 2 * Math.PI) / 6;
+          starPoints.push({
+            x: Math.cos(2*angle) * 6*starRadius,
+            y: Math.sin(2*angle) * 6*starRadius,
+          });
+        }
+
+        for (const starPoint of starPoints) {
+          const angleToParent = Math.atan2(starPoint.y, starPoint.x);
+          saveAndTranslate(starPoint.x, starPoint.y, angleToParent);
+          drawStar(5, 2*outerStarRadius, 2);
+          restore();
+        }
+
+        restore();
+      }
+      setTimeout(drawFullPattern,10);
+      linesDrawn=0;
+      ctx.translate(centerX,centerY);
+      ctx.rotate(0.01);
+      ctx.translate(-centerX,-centerY);
+      a = a * (1 + (Math.random()-0.5)*0.01);
+      b = b * (1 + (Math.random()-0.5)*0.01);
+      c = c * (1 + (Math.random()-0.5)*0.01);
+      d = d * (1 + (Math.random()-0.5)*0.01);
+      if(Math.random() < 0.01) {
+        r=Math.random();
+        if(r < 0.25) {
+          if(a<0) {
+            a = a*1.01;
+          } else {
+            a = a*0.99;
+          }
+        }else if(r < 0.5) {
+          if(b<0) {
+            b = b*1.01;
+          } else {
+            b = b*0.99;
+          }
+        }else if(r < 0.75) {
+          if(c<0) {
+            c = c*1.01;
+          } else {
+            c = c*0.99;
+          }
+        }else if(r < 1.0) {
+          if(d<0) {
+            d = d*1.01;
+          } else {
+            d = d*0.99;
+          }
+        }
+      }
+    }
+    drawFullPattern();
+  </script>
+</body>
+</html>
+
