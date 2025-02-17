@@ -3,4 +3,4 @@
 (
   cd ~/code/puzzled
   npm run build
-) && pwd && cp -r ~/code/puzzled/dist/* . && git add .
+) && pwd && rm assets/* && cp -r ~/code/puzzled/dist/* . && git add .
